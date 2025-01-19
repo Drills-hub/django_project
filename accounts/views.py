@@ -7,6 +7,7 @@ from .serializers import UserSerializer
 from .models import Role
 
 
+#회원가입
 class SignupAPIView(APIView):
 
     def post(self, request):
@@ -27,7 +28,7 @@ class SignupAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+#로그인
 class LoginAPIView(APIView):
 
     def post(self, request):
