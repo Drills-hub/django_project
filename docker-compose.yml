@@ -4,8 +4,8 @@ services:
       context: .
     command: gunicorn django_project.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ./app:/app
-      - ./static:/static
+      - .:/app
+      - ./staticfiles:/staticfiles
     ports:
       - "8000:8000"
     depends_on:
@@ -17,7 +17,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./static:/app/static 
+      - ./staticfiles:/static
     depends_on:
       - web
 
